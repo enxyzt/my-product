@@ -1,7 +1,6 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products; index as productId">
-    <div class="card">
+    <div class="card" *ngFor="let product of products; index as productId">
 
     <h3>
       <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
@@ -21,8 +20,8 @@
   <span>{{product.qnt}}</span>
     <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(product)"></i></button>
   </div>
-  <button type="button" (click)="addToCart(product)"><snack-bar-overview></snack-bar-overview>
+  <button type="button" (click)="addToCart(product)" (click)="sendNumber()"><snack-bar-overview></snack-bar-overview>
   </button>
 
   </div>
-</div>
+

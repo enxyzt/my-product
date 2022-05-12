@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './products';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,16 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+  }
+
+  private subject = new Subject<any>();
+
+  sendNumber(number:number){
+    this.subject.next({text:number});
+  }
+
+  getNumber():Observable<any>{
+    return this.subject.asObservable();
   }
   constructor() { }
 }

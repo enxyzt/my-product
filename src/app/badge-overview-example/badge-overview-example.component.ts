@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';;
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CartService } from '../cart.service';
+
 @Component({
   selector: 'app-badge-overview-example',
   templateUrl: './badge-overview-example.component.html',
@@ -6,16 +9,16 @@ import { Component, OnInit } from '@angular/core';;
 })
 export class BadgeOverviewExampleComponent implements OnInit {
 
-  constructor() { }
+  number: any;
+  subscription: Subscription;
+
+  constructor(private cartService: CartService) {
+    this.subscription = this.cartService.getNumber().subscribe(number => { this.number = number });
+  }
 
   ngOnInit(): void {
   }
 
-  hidden = false;
-
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
-  }
 
   countProd:any = 0;
 

@@ -20,6 +20,10 @@ export class CartComponent implements OnInit {
   }
 }
 
+clearCart() {
+  this.items = [];
+  return this.items;
+}
   constructor(
     private cartService: CartService
   ) { }

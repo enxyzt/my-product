@@ -12,6 +12,20 @@ export class ProductListComponent {
 
   constructor(
     private cartService: CartService  ) { }
+
+
+    public count: number = 0;
+  sendNumber() {
+    this.cartService.sendNumber(this.increament());
+  }
+
+  increament() {
+    this.count += 1;
+    console.log("done");
+    return this.count;
+  }
+
+
   share() {
     window.alert('The product has been shared!');
   }
