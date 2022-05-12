@@ -108,6 +108,7 @@ label {
 /* Top Bar */
 
 app-top-bar {
+  /* display: none; */
   z-index: 999;
   width: 100%;
  position: fixed;
@@ -143,5 +144,6 @@ snack-bar-overview button {
 
 .success-snackbar {
   background-color: #75baff;
+  color: white;
 }
 

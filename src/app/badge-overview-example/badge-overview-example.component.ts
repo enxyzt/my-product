@@ -18,8 +18,4 @@ export class BadgeOverviewExampleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-  countProd:any = 0;
-
 }
