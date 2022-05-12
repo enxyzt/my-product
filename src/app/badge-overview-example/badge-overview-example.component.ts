@@ -17,5 +17,6 @@ export class BadgeOverviewExampleComponent implements OnInit {
     this.hidden = !this.hidden;
   }
 
-  countProd = 1;
+  countProd:any = 0;
+
 }

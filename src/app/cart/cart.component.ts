@@ -9,7 +9,16 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items = this.cartService.getItems();
-  @Input() itemsCount = this.items.length;
+
+  inc(item: any){
+    item.qnt = item.qnt + 1;
+  }
+
+  dec(product: any){
+    if(product.qnt != 1){
+      product.qnt -= 1;
+  }
+}
 
   constructor(
     private cartService: CartService

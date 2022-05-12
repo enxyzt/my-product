@@ -20,5 +20,12 @@ export class ProductListComponent {
     this.cartService.addToCart(product);
   }
 
+  inc(product: any){
+    product.qnt = product.qnt + 1;
+  }
+  dec(product: any){
+    if(product.qnt != 1){
+      product.qnt -= 1;
+  }
 }
-
+}

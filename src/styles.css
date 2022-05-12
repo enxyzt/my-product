@@ -22,7 +22,6 @@ router-outlet + *  {
   margin-bottom: 30px;
   padding: 0 16px;
 }
-
 /* Text */
 
 h1 {
@@ -123,7 +122,7 @@ app-top-bar h1 {
 
 /* Checkout Cart */
 
-.cart-item {
+/* .cart-item {
   width: 100%;
   min-width: 400px;
   max-width: 450px;
@@ -134,7 +133,7 @@ app-top-bar h1 {
   margin-bottom: 8px;
   border-radius: 2px;
   background-color: #EEEEEE;
-}
+} */
 
 snack-bar-overview button {
   width: 100%;
