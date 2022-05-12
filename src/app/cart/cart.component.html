@@ -7,16 +7,23 @@
     <th>Item</th>
     <th>Price</th>
     <th>Qnt</th>
+    <th>Sub Total</th>
   </tr>
   <tr *ngFor="let item of items, index as productId">
     <td>{{ item.name }}</td>
     <td>{{ item.price | currency }}</td>
-    <td><div class="btn">
-      <button type="button" class="btn" (click)="dec(item)"><i class="fa fa-minus"></i></button>
-    <span>{{item.qnt}}</span>
-      <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(item)"></i></button>
-    </div></td>
+    <td>
+      <div>
+        <button type="button" class="btn" (click)="dec(item)"><i class="fa fa-minus"></i></button>
+        <span>{{item.qnt}}</span>
+        <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(item)"></i></button>
+      </div>
+    </td>
+    <td>
+      {{ item.price * item.qnt | currency }}
+    </td>
   </tr>
- </table>
 
- <button type="button" class="btn btnclear" (click)="clearCart()">Clear</button>
+</table>
+
+<button type="button" class="btn btnclear" (click)="clearCart()" (click)="nullNumber()">Clear</button>

@@ -26,6 +26,7 @@ export class ProductListComponent {
   }
 
 
+
   share() {
     window.alert('The product has been shared!');
   }
@@ -34,12 +35,15 @@ export class ProductListComponent {
     this.cartService.addToCart(product);
   }
 
-  inc(product: any){
-    product.qnt = product.qnt + 1;
+  inc(item: any){
+
+    if(item.qnt != 5){
+      item.qnt += 1;
+    }
   }
-  dec(product: any){
-    if(product.qnt != 1){
-      product.qnt -= 1;
+  dec(item: any){
+    if(item.qnt != 1){
+      item.qnt -= 1;
   }
 }
 }

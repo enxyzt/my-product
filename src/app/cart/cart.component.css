@@ -11,14 +11,12 @@ td, th {
   width: 300px;
 }
 
+
 tr:nth-child(even) {
   background-color: #d2d2ce;
 }
 
-.btn {
-  background-color: #44ace3;
-}
-
 .btnclear{
+  background-color: #1976d2;
   margin: 1rem;
 }

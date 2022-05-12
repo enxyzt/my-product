@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -11,17 +11,27 @@ export class CartComponent implements OnInit {
   items = this.cartService.getItems();
 
   inc(item: any){
-    item.qnt = item.qnt + 1;
-  }
+    if(item.qnt != 5){
+      item.qnt += 1;
+  }  }
 
-  dec(product: any){
-    if(product.qnt != 1){
-      product.qnt -= 1;
+  dec(item: any){
+    if(item.qnt != 1){
+      item.qnt -= 1;
   }
+}
+public count: any;
+
+nullNumber(){
+  this.cartService.sendNumber(this.dell());
+}
+dell(){
+  this.count = null;
+  return this.count;
 }
 
 clearCart() {
-  this.items = [];
+  this.items.length = 0;
   return this.items;
 }
   constructor(

@@ -19,6 +19,7 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+
   }
 
   private subject = new Subject<any>();
