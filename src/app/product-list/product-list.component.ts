@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { Product, products } from '../products';
 import { CartService } from '../cart.service';
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -10,9 +9,9 @@ import { CartService } from '../cart.service';
 })
 export class ProductListComponent {
   products = products;
+
   constructor(
-    private cartService: CartService
-  ) { }
+    private cartService: CartService  ) { }
   share() {
     window.alert('The product has been shared!');
   }
@@ -20,12 +19,6 @@ export class ProductListComponent {
   addToCart(product: Product) {
     this.cartService.addToCart(product);
   }
+
 }
 
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

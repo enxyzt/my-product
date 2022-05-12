@@ -8,16 +8,27 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent} from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BadgeOverviewExampleComponent } from './badge-overview-example/badge-overview-example.component';
+import {MaterialExampleModule} from '../material.module';
+import {MatNativeDateModule} from '@angular/material/core';
+import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overview.component';
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MaterialExampleModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-    ])
+    ]),
+    NgbModule
   ],
   declarations: [
     AppComponent,
@@ -25,6 +36,8 @@ import { CartComponent } from './cart/cart.component';
     ProductListComponent,
     ProductDetailsComponent,
     CartComponent,
+    SnackBarOverviewComponent,
+    BadgeOverviewExampleComponent
   ],
 
   bootstrap: [

@@ -73,7 +73,7 @@ label {
 
 /* Button */
 .button, button {
-  display: inline-flex;
+
   align-items: center;
   padding: 8px 16px;
   border-radius: 2px;
@@ -109,8 +109,11 @@ label {
 /* Top Bar */
 
 app-top-bar {
+  z-index: 999;
   width: 100%;
  position: fixed;
+ background-color: #1976d2;
+ padding: 10px;
 }
 
 app-top-bar h1 {
@@ -133,3 +136,12 @@ app-top-bar h1 {
   background-color: #EEEEEE;
 }
 
+snack-bar-overview button {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.success-snackbar {
+  background-color: #75baff;
+}
