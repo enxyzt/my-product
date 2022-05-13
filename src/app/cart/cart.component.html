@@ -48,8 +48,8 @@
                           <th>Description</th>
                           <th>Price</th>
                           <th>Quantity</th>
-                          <!-- <th>Total</th> -->
-                          <!-- <th>Action</th> -->
+                          <th>Sub Total</th>
+                          <th>Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -59,8 +59,14 @@
                           <!-- <td><img style="width: 120px;" src="{{item.image}}" alt=""></td> -->
                           <td style="width: 25%;">{{item.description}}</td>
                           <th style="width: 12%;">{{item.price}}</th>
-                          <td style="width: 12%;">{{item.qnt}}</td>
-                          <!-- <td style="width: 12%;">{{item.total}}</td> -->
+                          <td style="width: 22%;">
+                            <div>
+                              <button type="button" class="btn" (click)="dec(item)"><i class="fa fa-minus"></i></button>
+                              <span>{{item.qnt}}</span>
+                              <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(item)"></i></button>
+                            </div>
+                          </td>
+                          <td style="width: 12%;">{{item.price*item.qnt}}</td>
                           <td>
                               <button (click)="removeItem(item)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                           </td>

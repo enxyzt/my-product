@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <br>
 <h2>Products</h2>
 
@@ -26,4 +26,29 @@
   </button>
 
   </div>
+ -->
 
+<ng-container>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let product of products; index as productId">
+        <div class="card col-md-3">
+          <!-- <img src="{{item.image}}" alt=""> -->
+          <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{product.name}}
+          </h5>
+          <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+            {{product.description}}</p>
+          <p><strong>Price:</strong> ${{product.price}}</p>
+          <div class="btn">
+            <button type="button" class="btn" (click)="dec(product)"><i class="fa fa-minus"></i></button>
+          <span>{{product.qnt}}</span>
+            <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(product)"></i></button>
+          </div>
+          <button class="btn btn-primary" (click)="addToCart(product)" (click)="sendNumber()">
+            <snack-bar-overview></snack-bar-overview>
+          </button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>

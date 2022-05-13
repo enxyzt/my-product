@@ -30,10 +30,6 @@ dell(){
   return this.count;
 }
 
-clearCart() {
-  this.items.length = 0;
-  return this.items;
-}
   constructor(
     private cartService: CartService
   ) { }
