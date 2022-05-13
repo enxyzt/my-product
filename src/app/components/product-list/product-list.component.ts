@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from "@angular/material/snack-bar";
 
-import { Product, products } from '../products';
-import { CartService } from '../cart.service';
+import { NotificationService } from "../../services/notification.service";
+import { Product, products } from '../../products';
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -11,7 +13,9 @@ export class ProductListComponent {
   products = products;
 
   constructor(
-    private cartService: CartService  ) { }
+    private cartService: CartService,
+    public notificationService: NotificationService,
+    ) { }
 
 
     public count: number = 0;
