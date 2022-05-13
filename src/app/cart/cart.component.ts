@@ -38,7 +38,16 @@ clearCart() {
     private cartService: CartService
   ) { }
 
+
+
   ngOnInit(): void {
   }
 
+
+  removeItem(item: any){
+    this.cartService.removeCartItem(item);
+  }
+  emptycart(){
+    this.cartService.removeAllCart();
+  }
 }

@@ -15,6 +15,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overview.component';
+import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,9 +25,10 @@ import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overvi
     BrowserAnimationsModule,
     MaterialExampleModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', component: HomePageComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'product-list', component: ProductListComponent}
     ]),
     NgbModule
   ],
@@ -37,7 +39,8 @@ import { SnackBarOverviewComponent } from './snack-bar-overview/snack-bar-overvi
     ProductDetailsComponent,
     CartComponent,
     SnackBarOverviewComponent,
-    BadgeOverviewExampleComponent
+    BadgeOverviewExampleComponent,
+    HomePageComponent
   ],
 
   bootstrap: [

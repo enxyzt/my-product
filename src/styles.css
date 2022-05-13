@@ -20,7 +20,7 @@ body {
 router-outlet + *  {
   margin-top: 30px;
   margin-bottom: 30px;
-  padding: 0 16px;
+  padding: 72px 16px;
 }
 /* Text */
 
