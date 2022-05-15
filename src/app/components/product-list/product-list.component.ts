@@ -1,9 +1,20 @@
-import { Component } from '@angular/core';
-import { MatSnackBar } from "@angular/material/snack-bar";
+import {
+  Component
+} from '@angular/core';
+import {
+  ApiService
+} from '../../services/api.service';
 
-import { NotificationService } from "../../services/notification.service";
-import { Product, products } from '../../products';
-import { CartService } from '../../services/cart.service';
+import {
+  NotificationService
+} from "../../services/notification.service";
+import {
+  Product,
+  products
+} from '../../products';
+import {
+  CartService
+} from '../../services/cart.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -12,16 +23,30 @@ import { CartService } from '../../services/cart.service';
 export class ProductListComponent {
   products = products;
 
+  public productItems: any;
   constructor(
     private cartService: CartService,
     public notificationService: NotificationService,
-    ) { }
+    private api: ApiService
+  ) {}
 
 
-    public count: number = 0;
-  sendNumber() {
-    this.cartService.sendNumber(this.increament());
+  ngOnInit(): void {
+    this.api.getProduct()
+      .subscribe(res => {
+        this.productItems = res;
+
+        this.productItems.forEach((a: any) => {
+          Object.assign(a, {
+            quantity: 1,
+            total: a.price
+          });
+        })
+      });
   }
+
+  public count: number = 0;
+
 
   increament() {
     this.count += 1;
@@ -35,19 +60,19 @@ export class ProductListComponent {
     window.alert('The product has been shared!');
   }
 
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
+  addToCart(item: any) {
+    this.cartService.addToCart(item);
   }
+////////////////////////////////////////////////////////////////////////////////////////////////
+  inc(item: any) {
 
-  inc(item: any){
-
-    if(item.qnt != 5){
+    if (item.qnt != 5) {
       item.qnt += 1;
     }
   }
-  dec(item: any){
-    if(item.qnt != 1){
+  dec(item: any) {
+    if (item.qnt != 1) {
       item.qnt -= 1;
+    }
   }
-}
 }

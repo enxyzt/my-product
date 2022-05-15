@@ -30,23 +30,24 @@
 
   <div class="container">
     <div class="row">
-      <ng-container *ngFor="let product of products; index as productId">
+      <ng-container *ngFor="let product of productItems; index as productId">
         <div class="card col-md-3">
-          <!-- <img src="{{product.image}}" alt=""> -->
+          <img src="{{product.image}}" alt="">
           <h3>
             <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-              {{ product.name }}
+              {{ product.title }}
             </a>
           </h3>
           <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
             {{product.description}}</p>
           <p><strong>Price:</strong> ${{product.price}}</p>
-          <div class="btn">
+          <!-- <div class="btn">
+            <span>{{product.quantity}}</span>
             <button type="button" class="btn" (click)="dec(product)"><i class="fa fa-minus"></i></button>
-          <span>{{product.qnt}}</span>
+
             <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(product)"></i></button>
-          </div>
-          <button class="btn btn-primary" (click)="addToCart(product)" (click)="sendNumber()" (click)="notificationService.success('Added to Cart')">
+          </div> -->
+          <button class="btn btn-primary" (click)="addToCart(product)" (click)="notificationService.success('Added to Cart')">
             Add to Cart
           </button>
         </div>

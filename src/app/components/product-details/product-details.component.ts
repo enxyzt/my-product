@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../../products';
 import { CartService } from '../../services/cart.service';
-
+import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -11,10 +11,13 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
+  public productItems: any;
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private api: ApiService
+
   ) { }
 
   addToCart(product: Product) {
@@ -28,6 +31,11 @@ export class ProductDetailsComponent implements OnInit {
 
     // Find the product that correspond with the id provided in route.
     this.product = products.find(product => product.id === productIdFromRoute);
+
+    this.api.getProduct()
+    .subscribe(res => {
+      this.productItems = res;
+    })
   }
 
 }
