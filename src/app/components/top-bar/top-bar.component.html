@@ -4,6 +4,11 @@
     <a [routerLink]="['/']">
       <h1>My Store</h1>
     </a>
+    <div class="form-group">
+      <!-- <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products"> -->
+      <input type="text" placeholder="Search products.." class="form-control" name="search" [(ngModel)]="searchTerm" (keyup)="search($event)">
+      <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
     <button routerLink="/product-list">Products</button>
     <app-badge-overview-example></app-badge-overview-example>
   </div>

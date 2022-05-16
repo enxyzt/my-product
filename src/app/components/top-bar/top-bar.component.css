@@ -1,3 +1,20 @@
 .navbar h1{
   margin-bottom: 0px;
 }
+
+.form-control {
+  border-radius: 3px;
+  width: 500px;
+  margin-bottom: 0px;
+}
+
+.form-group{
+  display: flex;
+}
+.search-icon {
+  position: absolute;
+  z-index: 10;
+  right: 43%;
+  top: 20px;
+  color: blue;
+}
