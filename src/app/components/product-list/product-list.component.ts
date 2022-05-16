@@ -63,23 +63,9 @@ export class ProductListComponent {
     })
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  share() {
-    window.alert('The product has been shared!');
-  }
 
   addToCart(item: any) {
     this.cartService.addToCart(item);
   }
 
-  inc(item: any) {
-
-    if (item.qnt != 5) {
-      item.qnt += 1;
-    }
-  }
-  dec(item: any) {
-    if (item.qnt != 1) {
-      item.qnt -= 1;
-    }
-  }
 }

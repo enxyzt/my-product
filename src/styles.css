@@ -101,7 +101,7 @@ label {
 }
 
 .fancy-button i.material-icons {
-  color: #1976d2;
+  color: #128967;
   padding-right: 4px;
 }
 
@@ -112,7 +112,7 @@ app-top-bar {
   z-index: 999;
   width: 100%;
  position: fixed;
- background-color: #1976d2;
+ background-color: #19d298;
  padding: 10px;
 }
 
@@ -143,7 +143,7 @@ snack-bar-overview button {
 }
 
 .success-snackbar {
-  background-color: #75baff;
+  background-color: #04ffb8;
   color: white;
 }
 

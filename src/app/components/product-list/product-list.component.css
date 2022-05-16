@@ -8,9 +8,19 @@
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
+  padding: 0.72rem;
+  margin-bottom: 1.7rem;
 }
+.card-top h6{
+  margin-bottom: 0px;
+}
+
 .item img {
   width: 64px;
+}
+.item img:hover {
+  transition: 0.5s ease-in-out;
+  transform: scale(1.1);
 }
 .item {
   margin: 0px 15px;
@@ -21,8 +31,8 @@
   color: blue;
 }
 .card {
-  padding: 20px;
-  margin: 50px;
+  padding: 10px;
+  margin: 25px;
 
 }
 .card img {
@@ -37,4 +47,13 @@
 .card img:hover {
   transition: 0.5s ease-in-out;
   transform: scale(1.1);
+}
+
+.card button {
+  background-color:#128967 ;
+  border: 1px solid #004b36;
+}
+
+.row {
+  justify-content: center;
 }

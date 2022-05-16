@@ -11,10 +11,6 @@
 .form-group{
   display: flex;
 }
-.search-icon {
-  position: absolute;
-  z-index: 10;
-  right: 43%;
-  top: 20px;
-  color: blue;
+button {
+  background-color: #006548;
 }
