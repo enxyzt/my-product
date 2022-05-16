@@ -24,6 +24,8 @@ export class ProductListComponent {
   products = products;
 
   public productItems: any;
+  public filterCategory : any
+  searchKey:string ="";
   constructor(
     private cartService: CartService,
     public notificationService: NotificationService,
@@ -33,29 +35,34 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     this.api.getProduct()
-      .subscribe(res => {
-        this.productItems = res;
-
-        this.productItems.forEach((a: any) => {
-          Object.assign(a, {
-            quantity: 1,
-            total: a.price
-          });
-        })
+    .subscribe(res=>{
+      this.productItems = res;
+      this.filterCategory = res;
+      this.productItems.forEach((a:any) => {
+        if(a.category ==="women's clothing" || a.category ==="men's clothing"){
+          a.category ="fashion"
+        }
+        Object.assign(a,{quantity:1,total:a.price});
       });
+      console.log(this.productItems)
+    });
+
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
   }
-
-  public count: number = 0;
-
-
-  increament() {
-    this.count += 1;
-    console.log("done");
-    return this.count;
+  addtocart(item: any){
+    this.cartService.addToCart(item);
   }
-
-
-
+  filter(category:string){
+    this.filterCategory = this.productItems
+    .filter((a:any)=>{
+      if(a.category == category || category==''){
+        return a;
+      }
+    })
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////////////
   share() {
     window.alert('The product has been shared!');
   }
@@ -63,7 +70,7 @@ export class ProductListComponent {
   addToCart(item: any) {
     this.cartService.addToCart(item);
   }
-////////////////////////////////////////////////////////////////////////////////////////////////
+
   inc(item: any) {
 
     if (item.qnt != 5) {

@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BadgeOverviewExampleComponent } from './components/badge-overview-example/badge-overview-example.component';
 import {MaterialExampleModule} from '../material.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { FilterPipe } from './shared/filter.pipe';
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     ProductDetailsComponent,
     CartComponent,
     BadgeOverviewExampleComponent,
-    HomePageComponent
+    HomePageComponent,
+    FilterPipe
   ],
 
   bootstrap: [
