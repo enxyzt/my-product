@@ -32,7 +32,7 @@
     <div class="row">
       <ng-container *ngFor="let product of productItems; index as productId">
         <div class="card col-md-3">
-          <img src="{{product.image}}" alt="">
+          <img src="{{product.images[0]}}" alt="">
           <h3>
             <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
               {{ product.title }}
