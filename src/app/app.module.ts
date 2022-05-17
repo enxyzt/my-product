@@ -6,6 +6,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -18,11 +19,14 @@ import { BadgeOverviewExampleComponent } from './components/badge-overview-examp
 import {MaterialExampleModule} from '../material.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
     MatNativeDateModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -43,7 +47,9 @@ import { FilterPipe } from './shared/filter.pipe';
     CartComponent,
     BadgeOverviewExampleComponent,
     HomePageComponent,
-    FilterPipe
+    FilterPipe,
+    RegisterComponent,
+    LoginComponent,
   ],
 
   bootstrap: [
