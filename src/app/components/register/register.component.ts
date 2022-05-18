@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CheckFormService } from '../../services/check-form.service';
-import { FlashMessagesService } from 'flash-messages-angular';
+import { Component, OnInit  } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,43 +8,37 @@ import { FlashMessagesService } from 'flash-messages-angular';
 })
 export class RegisterComponent implements OnInit {
 
+  myForm! : FormGroup;
 
-  name: string | undefined;
-  login: string | undefined;
-  email: string | undefined;
-  password: string | undefined;
 
-  constructor( private checkForm: CheckFormService,
-    private flashMessages: FlashMessagesService ) { }
+
+  storeUser(): void {
+    localStorage.setItem('users', JSON.stringify(this.myForm.value));
+  }
+
+  constructor (private formBuilder : FormBuilder) {
+
+    }
+
+    submit(){
+      console.log(this.myForm.value);
+
+    }
 
   ngOnInit(): void {
+    this.myForm = this.formBuilder.group({
+
+      "userName": new FormControl("", Validators.pattern('^[A-Z,a-z0-9_-]{3,32}$')),
+      "userLogin": new FormControl("", [Validators.pattern('^[A-Za-z0-9_-]{5,32}$'), Validators.required]),
+      "userEmail": new FormControl("", [
+        Validators.required,
+        Validators.email
+      ]),
+      "userPassword": new FormControl("", [Validators.required,
+        Validators.pattern('^[A-Z,a-z0-9_-]{3,32}$')])
+      });
   }
 
-  userRegisterClick(){
-    const user = {
-      name: this.name,
-      login: this.login,
-      email: this.email,
-      password: this.password
-    };
 
 
-    if(!this.checkForm.checkName(user.name)){
-      this.flashMessages.show("Name is required",
-      {cssClass: 'alert-danger'});
-    return false;
-  } else if (!this.checkForm.checkLogin(user.login)){
-    this.flashMessages.show("Login is required",
-      {cssClass: 'alert-danger', timeout: 3000});
-    return false;
-    } else if (!this.checkForm.checkEmail(user.email)){
-      this.flashMessages.show("Email is required",
-      {cssClass: 'alert-danger', timeout: 3000});
-      return false;
-    }else if (!this.checkForm.checkPassword(user.password)){
-      this.flashMessages.show("Password is required",
-      {cssClass: 'alert-danger', timeout: 3000});
-      return false;
-    }
-  }
 }

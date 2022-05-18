@@ -1,8 +1,44 @@
-<form (submit)="userRegisterClick()">
-  <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Enter your name">
-  <input type="text" [(ngModel)]="login" name="login" class="form-control" placeholder="Enter your login">
-  <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Enter your email">
-  <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Enter your password">
-  <br>
-  <button class="btn btn-success" type="submit">Register</button>
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <h1>Registration</h1>
+  <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" name="fname" formControlName="userName" />
+
+      <div class="alert alert-danger"
+          *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
+          name entered incorrectly
+      </div>
+      <label>Login/Username</label>
+      <input class="form-control" name="login" formControlName="userLogin" />
+
+      <div class="alert alert-danger"
+          *ngIf="myForm.controls['userLogin'].invalid && myForm.controls['userLogin'].touched">
+          name entered incorrectly
+      </div>
+  </div>
+  <div class="form-group">
+      <label>Email</label>
+      <input class="form-control" name="email" formControlName="userEmail" />
+
+      <div class="alert alert-danger"
+          *ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched">
+          Email entered incorrectly
+      </div>
+  </div>
+  <div class="form-group">
+      <label>Password</label>
+      <input  type="password" class="form-control" name="phone" formControlName="userPassword" />
+      <div class="alert alert-danger"
+          *ngIf="myForm.controls['userPassword'].invalid && myForm.controls['userPassword'].touched">
+          Password entered incorrectly
+      </div>
+  </div>
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="myForm.invalid" (click)="storeUser()" routerLink="/login">
+          Register
+      </button>
+      <button class="btn btn-default" routerLink="/login">
+        Sing in
+    </button>
+  </div>
 </form>

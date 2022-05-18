@@ -9,10 +9,6 @@ import {
   NotificationService
 } from "../../services/notification.service";
 import {
-  Product,
-  products
-} from '../../products';
-import {
   CartService
 } from '../../services/cart.service';
 @Component({
@@ -21,7 +17,7 @@ import {
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products = products;
+
 
   public productItems: any;
   public filterCategory : any

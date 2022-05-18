@@ -1,5 +1,5 @@
 /* Global Styles */
-
+@import "~bootstrap/dist/css/bootstrap.css";
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;
@@ -13,26 +13,20 @@ body {
 }
 
 .container {
-  padding-top: 10vh;
+  padding-top: 15vh;
   display: grid;
   justify-content: center;
   width: 100% !important;
+  margin: auto auto;
 }
 
-router-outlet + * {
-  margin-top: 30px;
+router-outlet {
+  margin-top: 74px;
   margin-bottom: 30px;
-  padding: 72px 16px;
+
 }
-flash-messages {
-  padding: 0px !important;
-  padding-top: 100px !important;
-  margin-top: 0px !important;
-}
-app-register, app-product-list, app-cart {
-  padding: 0px !important;
-  margin-top: 0px !important;
-}
+
+
 
 
 

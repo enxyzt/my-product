@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductDetailsComponent} from './components/product-details/product-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BadgeOverviewExampleComponent } from './components/badge-overview-example/badge-overview-example.component';
@@ -38,7 +37,7 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'cart', component: CartComponent },
       { path: 'product-list', component: ProductListComponent}
     ]),
@@ -48,7 +47,6 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ProductDetailsComponent,
     CartComponent,
     BadgeOverviewExampleComponent,
     HomePageComponent,
