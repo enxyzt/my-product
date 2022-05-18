@@ -13,15 +13,29 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
+  padding-top: 10vh;
+  display: grid;
+  justify-content: center;
+  width: 100% !important;
 }
 
-router-outlet + *  {
+router-outlet + * {
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 72px 16px;
 }
+flash-messages {
+  padding: 0px !important;
+  padding-top: 100px !important;
+  margin-top: 0px !important;
+}
+app-register, app-product-list, app-cart {
+  padding: 0px !important;
+  margin-top: 0px !important;
+}
+
+
+
 /* Text */
 
 h1 {

@@ -57,3 +57,10 @@
 .row {
   justify-content: center;
 }
+
+.container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0px !important;
+}

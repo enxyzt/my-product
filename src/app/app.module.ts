@@ -21,18 +21,23 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { CheckFormService } from './services/check-form.service';
+import { FlashMessagesModule } from 'flash-messages-angular';
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    FlashMessagesModule.forRoot(),
     MatNativeDateModule,
     FormsModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
+
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'product-list', component: ProductListComponent}
@@ -51,6 +56,7 @@ import { LoginComponent } from './components/login/login.component';
     RegisterComponent,
     LoginComponent,
   ],
+  providers: [CheckFormService],
 
   bootstrap: [
     AppComponent
