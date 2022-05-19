@@ -10,7 +10,7 @@
       <button type="submit"><i class="fa fa-search"></i></button>
   </div>
     <button routerLink="/product-list">Products</button>
-    <a class="nav-item nav-link" [routerLink]="['/login']" (click)="logout()" >Logout</a>
+    <button [routerLink]="['/login']" (click)="logout()"> Logout</button>
     <app-badge-overview-example></app-badge-overview-example>
   </div>
 </header>
