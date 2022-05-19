@@ -1,44 +1,59 @@
-import { Component, OnInit  } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
-})
+import { AccountService } from '../../services/account.service';
+import { AlertService } from '../../services/alert.service';
+@Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
+    form: FormGroup;
+    loading = false;
+    submitted = false;
 
-  myForm! : FormGroup;
+    constructor(
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private accountService: AccountService,
+        private alertService: AlertService
+    ) { }
 
-
-
-  storeUser(): void {
-    localStorage.setItem('users', JSON.stringify(this.myForm.value));
-  }
-
-  constructor (private formBuilder : FormBuilder) {
-
+    ngOnInit() {
+        this.form = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            username: ['', Validators.required],
+            password: ['', [Validators.required, Validators.minLength(6)]]
+        });
     }
 
-    submit(){
-      console.log(this.myForm.value);
+    // convenience getter for easy access to form fields
+    get f() { return this.form.controls; }
 
+    onSubmit() {
+        this.submitted = true;
+
+        // reset alerts on submit
+        this.alertService.clear();
+
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.accountService.register(this.form.value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    this.alertService.success('Registration successful', { keepAfterRouteChange: true });
+                    this.router.navigate(['../login'], { relativeTo: this.route });
+                },
+                error: error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
+            });
     }
-
-  ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-
-      "userName": new FormControl("", Validators.pattern('^[A-Z,a-z0-9_-]{3,32}$')),
-      "userLogin": new FormControl("", [Validators.pattern('^[A-Za-z0-9_-]{5,32}$'), Validators.required]),
-      "userEmail": new FormControl("", [
-        Validators.required,
-        Validators.email
-      ]),
-      "userPassword": new FormControl("", [Validators.required,
-        Validators.pattern('^[A-Z,a-z0-9_-]{3,32}$')])
-      });
-  }
-
-
-
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AccountService } from './services';
+import { User } from './_models';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   title = 'my-product';
+
+  user: User;
+
+  constructor(private accountService: AccountService) {
+      this.accountService.user.subscribe(x => this.user = x);
+  }
+
+  logout() {
+      this.accountService.logout();
+  }
 
 }

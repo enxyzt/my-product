@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common';
 
+import { fakeBackendProvider } from './_helpers';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AlertComponent } from './components/alert/alert.component';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
@@ -45,6 +48,7 @@ import { FlashMessagesModule } from 'flash-messages-angular';
   ],
   declarations: [
     AppComponent,
+    AlertComponent,
     TopBarComponent,
     ProductListComponent,
     CartComponent,
@@ -54,7 +58,12 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     RegisterComponent,
     LoginComponent,
   ],
-  providers: [CheckFormService],
+  providers: [CheckFormService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider],
 
   bootstrap: [
     AppComponent
