@@ -52,25 +52,20 @@
     </div>
   </div>
 </div>
-
-<div class="container">
+<div class="contaier">
   <div class="row">
-    <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'; index as productId">
-      <div class="card col-md-3">
-        <img src="{{product.thumbnail}}" alt="">
-        <h3>
-          <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-            {{ product.title }}
-          </a>
-        </h3>
-        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
-          {{product.description}}</p>
-        <p><strong>Price:</strong> ${{product.price}}</p>
-        <button class="btn btn-primary" (click)="addToCart(product)"
-          (click)="notificationService.success('Added to Cart')">
-          Add to Cart
-        </button>
-      </div>
-    </ng-container>
+  <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'; index as productId">
+  <div class="col-3">
+<div class="card">
+  <img src="{{product.thumbnail}}" alt="" style="width:100%">
+  <h1>{{ product.title }}</h1>
+  <p class="price"><strong>Price:</strong> ${{product.price}}</p>
+  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+    {{product.description}}</p>
+  <p><button (click)="addToCart(product)"
+    (click)="notificationService.success('Added to Cart')">Add to Cart</button></p>
   </div>
+</div>
+</ng-container>
+</div>
 </div>

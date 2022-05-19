@@ -13,9 +13,7 @@ body {
 }
 
 .container {
-  padding-top: 15vh;
   display: grid;
-  justify-content: center;
   width: 100% !important;
   margin: auto auto;
 }

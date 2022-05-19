@@ -30,10 +30,10 @@
 .item a:hover {
   color: blue;
 }
+
 .card {
   padding: 10px;
-  margin: 25px;
-
+  margin-bottom: 10px;
 }
 .card img {
   width: 200px;
@@ -49,18 +49,32 @@
   transform: scale(1.1);
 }
 
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
 .card button {
-  background-color:#128967 ;
-  border: 1px solid #004b36;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: rgb(0, 99, 53);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
-.row {
-  justify-content: center;
-}
-
-.container {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 0px !important;
+.card button:hover {
+  opacity: 0.7;
 }
