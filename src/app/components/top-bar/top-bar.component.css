@@ -1,16 +1,13 @@
-.navbar h1{
-  margin-bottom: 0px;
+.example-spacer {
+  flex: 1 1 auto;
 }
 
-.form-control {
-  border-radius: 3px;
-  width: 300px;
-  margin-bottom: 0px;
+input {
+  width: 40%;
+  margin: 25px;
+  border: 1px solid #ccc;
 }
 
-.form-group{
-  display: flex;
-}
-button {
-  background-color: #006548;
+button{
+  margin-right: 10px;
 }

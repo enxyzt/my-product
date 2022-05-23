@@ -1,18 +1,19 @@
 
-<header>
-  <div class="navbar">
-    <a [routerLink]="['/']">
-      <h1>My Store</h1>
-    </a>
-    <div class="form-group">
-      <!-- <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products"> -->
-      <input type="text" placeholder="Search products.." class="form-control" name="search" [(ngModel)]="searchTerm" (keyup)="search($event)">
-      <button type="submit"><i class="fa fa-search"></i></button>
-  </div>
-    <button routerLink="/product-list">Products</button>
-    <button [routerLink]="['/login']" (click)="logout()"> Logout</button>
-    <button [routerLink]="['/profile']" >My profile</button>
-
+<p>
+  <mat-toolbar>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/product-list">Products</button>
+  <button mat-menu-item [routerLink]="['/profile']">My Profile</button>
+</mat-menu>
+<a [routerLink]="['/']">
+  <h1>My Store</h1>
+</a>
+    <input type="text" placeholder="Search products.." class="form-control" name="search" [(ngModel)]="searchTerm" (keyup)="search($event)">
+    <span class="example-spacer"></span>
+    <button class="btn-logout" mat-raised-button color="primary"[routerLink]="['/login']" (click)="logout()"> Logout</button>
     <app-badge-overview-example></app-badge-overview-example>
-  </div>
-</header>
+  </mat-toolbar>
+</p>

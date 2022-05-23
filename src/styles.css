@@ -2,7 +2,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 * {
   font-family: 'Roboto', Arial, sans-serif;
-  color: #616161;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,6 +9,10 @@
 
 body {
   margin: 0;
+}
+.mat-toolbar {
+  background-color: #038235;
+  color: white;
 }
 
 .container {
@@ -27,24 +30,6 @@ router-outlet {
 
 
 
-
-/* Text */
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h1, h2 {
-  font-weight: lighter;
-}
-
-p {
-  font-size: 14px;
-}
 
 /* Hyperlink */
 
@@ -114,12 +99,9 @@ label {
 /* Top Bar */
 
 app-top-bar {
-  /* display: none; */
   z-index: 999;
   width: 100%;
  position: fixed;
- background-color: #19d298;
- padding: 10px;
 }
 
 app-top-bar h1 {

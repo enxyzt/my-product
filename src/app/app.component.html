@@ -1,7 +1,6 @@
 <app-top-bar *ngIf="user"></app-top-bar>
-
 <div class="container" [ngClass]="{  user }">
-  <router-outlet></router-outlet>
   <alert></alert>
+  <router-outlet></router-outlet>
 </div>
 

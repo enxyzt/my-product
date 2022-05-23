@@ -24,7 +24,6 @@ import { FilterPipe } from './shared/filter.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CheckFormService } from './services/check-form.service';
-import { FlashMessagesModule } from 'flash-messages-angular';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
@@ -33,7 +32,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    FlashMessagesModule.forRoot(),
     MatNativeDateModule,
     FormsModule,
     BrowserAnimationsModule,
