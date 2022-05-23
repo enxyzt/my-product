@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
+import { MustMatch } from '../../_helpers';
+
 import { AccountService } from '../../services/account.service';
 import { AlertService } from '../../services/alert.service';
 @Component({ templateUrl: 'register.component.html' })
@@ -24,7 +26,12 @@ export class RegisterComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            confirmPassword: ['', Validators.required],
+            acceptTerms: [false, Validators.requiredTrue]
+        }, {
+            validator: MustMatch('password', 'confirmPassword')
         });
     }
 

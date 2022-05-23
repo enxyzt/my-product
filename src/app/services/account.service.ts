@@ -5,7 +5,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { User } from '../user';
+import { User } from '../_models/user';
+
+let users = JSON.parse(localStorage.getItem('registered-users')) || [];
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -44,6 +46,12 @@ export class AccountService {
     register(user: User) {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
+
+
+    forgotPassword(id: string) {
+      return this.http.post(`${environment.apiUrl}/forgot-password`, id);
+
+  }
 
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);

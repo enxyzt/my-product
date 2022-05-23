@@ -1,3 +1,4 @@
+<div class="container" *ngIf="!user">
 <div class="card">
   <h4 class="card-header">Login</h4>
   <div class="card-body">
@@ -22,8 +23,14 @@
                   Login
               </button>
               <a routerLink="../register" class="btn btn-link">Register</a>
-              <a>Forgot Password</a>
+              <a routerLink="../forgot-password">Forgot Password</a>
           </div>
       </form>
   </div>
+</div>
+</div>
+
+<div class="container" *ngIf="user">
+  <p>you are already logged in</p>
+  <p><a routerLink="/product-list">Let's Shopping!</a></p>
 </div>

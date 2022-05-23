@@ -25,6 +25,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CheckFormService } from './services/check-form.service';
 import { FlashMessagesModule } from 'flash-messages-angular';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,6 +41,8 @@ import { FlashMessagesModule } from 'flash-messages-angular';
 
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
+      {path: 'profile', component: ProfileComponent},
+      { path : 'forgot-password', component: ForgotPasswordComponent},
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'cart', component: CartComponent },
@@ -57,6 +61,8 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     FilterPipe,
     RegisterComponent,
     LoginComponent,
+    ForgotPasswordComponent,
+    ProfileComponent,
   ],
   providers: [CheckFormService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
