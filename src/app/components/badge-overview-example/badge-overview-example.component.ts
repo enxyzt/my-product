@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-badge-overview-example',
@@ -9,12 +8,10 @@ import { CartService } from '../../services/cart.service';
 })
 export class BadgeOverviewExampleComponent implements OnInit {
 
-  number: any;
   // subscription: Subscription;
   public totalItem : number = 0;
 
   constructor(private cartService: CartService) {
-    // this.subscription = this.cartService.getNumber().subscribe(number => { this.number = number });
   }
 
   ngOnInit(): void {

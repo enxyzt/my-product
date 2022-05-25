@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
-import { AccountService } from '../../services';
-import { User } from '../../_models';
+import { CartService } from '../../shared/services/cart.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { User } from '../../shared/services/user';
 
 @Component({
   selector: 'app-top-bar',
@@ -16,10 +14,7 @@ export class TopBarComponent implements OnInit {
 
 
  constructor(private cartService : CartService,
-  private accountService: AccountService,
-  private route: ActivatedRoute,
-  private router: Router) {
-    this.accountService.user.subscribe(x => this.user = x);
+  public authService: AuthService) {
    }
 
   ngOnInit(): void {
@@ -31,8 +26,5 @@ export class TopBarComponent implements OnInit {
     this.cartService.search.next(this.searchTerm);
   }
 
-  logout() {
-    this.accountService.logout();
-    this.router.navigate(['../login'], { relativeTo: this.route });
-}
+
 }

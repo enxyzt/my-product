@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 
-import { User } from '../../_models';
-import { AccountService } from '../../services';
+import { User } from '../../shared/services/user';
 
 @Component({ templateUrl: 'home-page.component.html' })
 export class HomePageComponent {
     user: User;
 
-    constructor(private accountService: AccountService) {
-        this.user = this.accountService.userValue;
+    constructor() {
     }
 }

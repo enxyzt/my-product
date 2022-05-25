@@ -3,14 +3,14 @@ import {
 } from '@angular/core';
 import {
   ApiService
-} from '../../services/api.service';
+} from '../../shared/services/api.service';
 
 import {
   NotificationService
-} from "../../services/notification.service";
+} from "../../shared/services/notification.service";
 import {
   CartService
-} from '../../services/cart.service';
+} from '../../shared/services/cart.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
