@@ -1,19 +1,19 @@
 
 <p>
-  <mat-toolbar>
+  <mat-toolbar color="primary">
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item routerLink="/product-list">Products</button>
-  <button mat-menu-item [routerLink]="['/profile']">My Profile</button>
+  <button mat-menu-item [routerLink]="['/dashboard']">My Profile</button>
 </mat-menu>
 <a [routerLink]="['/']">
   <h1>My Store</h1>
 </a>
     <input type="text" placeholder="Search products.." class="form-control" name="search" [(ngModel)]="searchTerm" (keyup)="search($event)">
     <span class="example-spacer"></span>
-    <button class="btn-logout" mat-raised-button color="primary" (click)="authService.SignOut()" > Logout</button>
+    <button class="btn-logout" mat-raised-button color="warn" (click)="authService.SignOut()" > Logout</button>
     <app-badge-overview-example></app-badge-overview-example>
   </mat-toolbar>
 </p>

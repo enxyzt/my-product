@@ -10,10 +10,7 @@
 body {
   margin: 0;
 }
-.mat-toolbar {
-  background-color: #038235;
-  color: white;
-}
+
 
 .container {
   display: grid;
@@ -92,7 +89,7 @@ label {
 }
 
 .fancy-button i.material-icons {
-  color: #128967;
+  color: #124789;
   padding-right: 4px;
 }
 
@@ -131,7 +128,7 @@ snack-bar-overview button {
 }
 
 .success-snackbar {
-  background-color: #04ffb8;
+  background-color: #264eb3;
   color: white;
 }
 

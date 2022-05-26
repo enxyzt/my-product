@@ -62,7 +62,7 @@
   <p class="price"><strong>Price:</strong> ${{product.price}}</p>
   <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
     {{product.description}}</p>
-  <p><button (click)="addToCart(product)"
+  <p><button mat-raised-button color="primary" (click)="addToCart(product)"
     (click)="notificationService.success('Added to Cart')">Add to Cart</button></p>
   </div>
 </div>
