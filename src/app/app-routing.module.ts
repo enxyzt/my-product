@@ -10,6 +10,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },

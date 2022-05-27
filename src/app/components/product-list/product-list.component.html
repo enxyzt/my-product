@@ -58,7 +58,7 @@
   <div class="col-3">
 <div class="card">
   <img src="{{product.thumbnail}}" alt="" style="width:100%">
-  <h1>{{ product.title }}</h1>
+  <h1 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ product.title }}</h1>
   <p class="price"><strong>Price:</strong> ${{product.price}}</p>
   <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
     {{product.description}}</p>

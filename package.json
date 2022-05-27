@@ -26,6 +26,7 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",
     "firebase": "^9.8.1",
+    "firebase-functions": "^3.21.2",
     "flash-messages-angular": "^4.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
